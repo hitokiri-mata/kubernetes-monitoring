@@ -7,7 +7,7 @@ set -ex
 
 #https://github.com/hitokiri-mata/helm-charts/tree/main/charts
 #helm repo add coreos https://charts.bitnami.com/bitnami
-helm repo add coreos https://github.com/prometheus-community/helm-charts
+helm repo add coreos https://kubernetes-charts.storage.googleapis.com/
 #helm repo add coreos http://kubernetes-charts.banzaicloud.com/branch/master
 helm upgrade --install --devel --namespace=monitoring kube-prometheus coreos/kube-prometheus
 #helm upgrade --install --namespace monitoring --set rbacEnable=false prometheus-operator helm/prometheus-operator  
