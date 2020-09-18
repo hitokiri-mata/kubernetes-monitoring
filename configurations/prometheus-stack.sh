@@ -8,7 +8,7 @@ set -ex
 #https://github.com/hitokiri-mata/helm-charts/tree/main/charts
 #helm repo add coreos https://charts.bitnami.com/bitnami
 
-helm init --client-only
+#helm init --client-only
 helm repo add coreos http://kubernetes-charts.banzaicloud.com/branch/master
 helm upgrade --install --namespace=monitoring -f values.yaml kube-prometheus coreos/kube-prometheus
 #helm upgrade --install --namespace monitoring --set rbacEnable=false prometheus-operator helm/prometheus-operator  
