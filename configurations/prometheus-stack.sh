@@ -8,8 +8,6 @@ set -ex
 #https://github.com/hitokiri-mata/helm-charts/tree/main/charts
 #helm repo add coreos https://charts.bitnami.com/bitnami
 
-#helm repo add coreos https://github.com/helm/charts/tree/master/stable
-
 helm repo add coreos http://kubernetes-charts.banzaicloud.com/branch/master
 helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
 helm install coreos/kube-prometheus     --name kube-prometheus     --namespace monitoring --wait
