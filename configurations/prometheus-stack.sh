@@ -12,6 +12,8 @@ set -ex
 
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm search repo prometheus-community
+helm repo update
+
 helm  install --namespace=monitoring kube-prometheus prometheus-community/kube-prometheus
 #helm upgrade --install --namespace monitoring --set rbacEnable=false prometheus-operator helm/prometheus-operator  
 #helm upgrade --install --namespace monitoring --set rbacEnable=false kube-prometheus coreos/kube-prometheus --wait
