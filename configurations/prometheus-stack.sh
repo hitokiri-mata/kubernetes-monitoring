@@ -8,9 +8,11 @@ set -ex
 #https://github.com/hitokiri-mata/helm-charts/tree/main/charts
 #helm repo add coreos https://charts.bitnami.com/bitnami
 
+helm init --client-only
 helm repo add coreos http://kubernetes-charts.banzaicloud.com/branch/master
-helm upgrade --install --namespace monitoring --set rbacEnable=false prometheus-operator helm/prometheus-operator  
-helm upgrade --install --namespace monitoring --set rbacEnable=false kube-prometheus coreos/kube-prometheus --wait
+helm upgrade --install --namespace=monitoring -f values.yaml kube-prometheus coreos/kube-prometheus
+#helm upgrade --install --namespace monitoring --set rbacEnable=false prometheus-operator helm/prometheus-operator  
+#helm upgrade --install --namespace monitoring --set rbacEnable=false kube-prometheus coreos/kube-prometheus --wait
 
 kubectl patch service kube-prometheus              --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
 kubectl patch service kube-prometheus-alertmanager --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
