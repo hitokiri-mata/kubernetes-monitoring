@@ -10,11 +10,12 @@ set -ex
 #helm repo add coreos https://kubernetes-charts.storage.googleapis.com/
 #helm repo add coreos http://kubernetes-charts.banzaicloud.com/branch/master
 
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+#helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-helm repo update
+#helm repo update
 
-helm install prometheus-operator stable/prometheus-operator --namespace=monitoring
+helm install prometheus-operator stable/prometheus-operator
+helm install kube-prometheus stable/kube-prometheus --wait
 
 #helm  install prometheus-community/kube-prometheus
 #helm upgrade --install --namespace monitoring --set rbacEnable=false prometheus-operator helm/prometheus-operator  
