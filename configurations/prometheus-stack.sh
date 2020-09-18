@@ -9,7 +9,7 @@ set -ex
 #helm repo add coreos https://charts.bitnami.com/bitnami
 
 helm repo add coreos http://kubernetes-charts.banzaicloud.com/branch/master
-helm install --devel --namespace=monitoring kube-prometheus coreos/kube-prometheus
+helm upgrade --install --devel --namespace=monitoring kube-prometheus coreos/kube-prometheus
 #helm upgrade --install --namespace monitoring --set rbacEnable=false prometheus-operator helm/prometheus-operator  
 #helm upgrade --install --namespace monitoring --set rbacEnable=false kube-prometheus coreos/kube-prometheus --wait
 
