@@ -15,7 +15,8 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo update
 
 helm install --name prometheus-operator  stable/prometheus-operator
-helm  install prometheus-community/kube-prometheus
+
+#helm  install prometheus-community/kube-prometheus
 #helm upgrade --install --namespace monitoring --set rbacEnable=false prometheus-operator helm/prometheus-operator  
 #helm upgrade --install --namespace monitoring --set rbacEnable=false kube-prometheus coreos/kube-prometheus --wait
 
