@@ -9,8 +9,8 @@ set -ex
 #helm repo add coreos https://charts.bitnami.com/bitnami
 
 helm repo add coreos http://kubernetes-charts.banzaicloud.com/branch/master
-helm install coreos/prometheus-operator --name prometheus-operator --namespace monitoring
-helm install coreos/kube-prometheus     --name kube-prometheus     --namespace monitoring --wait
+helm install prometheus-operator coreos/prometheus-operator  --namespace monitoring
+helm install kube-prometheus coreos/kube-prometheus  --namespace monitoring --wait
 
 kubectl patch service kube-prometheus              --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
 kubectl patch service kube-prometheus-alertmanager --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
