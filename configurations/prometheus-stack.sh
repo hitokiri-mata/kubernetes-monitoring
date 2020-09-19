@@ -12,7 +12,7 @@ set -ex
 
 #helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-#helm repo update
+helm repo update
 #helm install stable/prometheus --set name=prom -f k8s-values.yml
 helm install prometheus-operator stable/prometheus-operator
 helm install kube-prometheus stable/kube-prometheus --wait
