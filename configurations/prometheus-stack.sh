@@ -21,8 +21,8 @@ helm install kube-prometheus stable/kube-prometheus --namespace=monitoring --wai
 #helm upgrade --install --namespace monitoring --set rbacEnable=false prometheus-operator helm/prometheus-operator  
 #helm upgrade --install --namespace monitoring --set rbacEnable=false kube-prometheus coreos/kube-prometheus --wait
 
-kubectl patch service kube-prometheus              --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
-#kubectl patch service kube-prometheus-alertmanager --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
-#kubectl patch service kube-prometheus-grafana      --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
+kubectl patch service kube-prometheus               --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
+kubectl patch service kube-prometheus-alertmanager  --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
+kubectl patch service kube-prometheus-grafana       --namespace=monitoring --type='json' -p='[{"op": "replace",  "path": "/spec/type", "value":"NodePort"}]'
 
 minikube service list -n monitoring
